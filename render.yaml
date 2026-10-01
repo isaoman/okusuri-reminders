@@ -1,0 +1,15 @@
+services:
+  - type: cron
+    name: okusuri-reminders
+    runtime: python
+    plan: starter
+    region: singapore
+    schedule: "* * * * *"
+    buildCommand: "true"
+    startCommand: "python notify.py"
+    envVars:
+      - key: REMINDER_URL
+        value: https://okusuri-stamp.isao-yanagisaw316046.chatgpt.site
+      - key: REMINDER_KEY
+        sync: false
+
