@@ -14,7 +14,12 @@ def main():
     request = urllib.request.Request(
         url,
         data=b"{}",
-        headers={"X-Reminder-Key": key, "Content-Type": "application/json"},
+        headers={
+            "X-Reminder-Key": key,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "okusuri-reminders/1.0",
+        },
         method="POST",
     )
     with urllib.request.urlopen(request, timeout=50) as response:
